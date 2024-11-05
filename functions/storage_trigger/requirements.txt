@@ -1,0 +1,6 @@
+cloudevents>=1.8.0
+functions_framework>=3.2.1
+google-auth
+google-cloud-storage>=2.11.0
+google-cloud-bigquery
+google-cloud-pubsub

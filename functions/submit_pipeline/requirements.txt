@@ -1,0 +1,5 @@
+google-cloud-storage>=2.11.0
+functions_framework>=3.2.1
+cloudevents>=1.8.0
+google-cloud-aiplatform>=1.4
+PyYAML

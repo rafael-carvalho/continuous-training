@@ -1,0 +1,6 @@
+google-cloud-aiplatform==1.69.0
+google-cloud-storage
+google-cloud-pipeline-components==2.17.0
+kfp==2.7.0
+nbformat==5.10.4
+nbconvert

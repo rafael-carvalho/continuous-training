@@ -1,0 +1,55 @@
+# Copyright 2024 Google LLC
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     https://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+steps:
+- name: "gcr.io/cloud-builders/docker"
+  id: "build"
+  args: ['build', '-t', '${_IMAGE_NAME}', '-t', '${_IMAGE_NAME}:latest', '-t', '${_IMAGE_NAME}:$BUILD_ID', '.']
+
+- name: "gcr.io/cloud-builders/docker"
+  id: "push"
+  args: ['push', '${_IMAGE_NAME}:$BUILD_ID']
+  waitFor:
+    - "build"
+
+- id: 'training_job'
+  name: '$_CLOUD_BUILD_IMAGE'
+  entrypoint: 'sh'
+  waitFor: ['push']
+  args: 
+  - '-c'
+  - | 
+      data_path_arg="--data_path=bq://$PROJECT_ID.$_BQ_DATASET.uploaded_csv_sample"
+      export PROJECT_ID=$PROJECT_ID 
+      # Submit the training job using the `run_training.py` script (assumes this handles Vertex AI job submission)
+      python3 run_training.py \
+          --training_container_image_uri="${_IMAGE_NAME}:$BUILD_ID" \
+          --location="$_REGION" \
+          --project="$PROJECT_ID" \
+          --tensorboard="$_TENSORBOARD" \
+          --display-name="cloud-build-$BUILD_ID" \
+          --staging-bucket=gs://$_BUCKET/vertex_training \
+          --persistent-resource-id="$_PERSISTENT_RESOURCE_ID" \
+          --service-account="$_RUNNER_SERVICE_ACCOUNT_EMAIL" \
+          --training-args="--data_path=$_BQ_SAMPLE_TRAINING_DATA_URI --model_checkpoint_dir=$_MODEL_CHECKPOINT_DIR"      
+
+- name: "gcr.io/cloud-builders/docker"
+  id: 'push_all'
+  args: ['push', '${_IMAGE_NAME}', '--all-tags']
+  waitFor:
+    - "training_job"
+
+images: ['${_IMAGE_NAME}']
+options:
+  substitutionOption: 'ALLOW_LOOSE'

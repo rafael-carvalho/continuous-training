@@ -1,0 +1,9 @@
+google-cloud-bigquery[pandas]
+google-cloud-storage
+google-cloud-aiplatform[prediction]>=1.27.0
+xgboost==1.7.6
+scikit-learn
+pandas
+joblib==1.2.0
+tensorboardX
+db-dtypes
