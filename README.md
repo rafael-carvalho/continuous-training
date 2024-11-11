@@ -149,6 +149,8 @@ This demo is intended for illustrative purposes and has the following known limi
 * **Error Handling:** The demo provides basic error handling. Enhance error handling and logging for more robust operation in a production environment. Consider incorporating mechanisms for alerting and automated recovery.
 * **Security Considerations:** This demo is not designed for production security requirements. Review and implement appropriate security measures, including access control, data encryption, and vulnerability scanning, before deploying any components to a production environment.
 
+## Persistent Resource Billing
+You are billed for the entire duration that a persistent resource is in a running state, regardless of whether there is a training job or a pipeline running on the persistent resource. For more details, please refer to the [documentation](https://cloud.google.com/vertex-ai/docs/training/persistent-resource-overview).
 
 ## Authors
 * Harkanwal Bedi (hsbedi@google.com)
