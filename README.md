@@ -150,7 +150,7 @@ This demo is intended for illustrative purposes and has the following known limi
 * **Security Considerations:** This demo is not designed for production security requirements. Review and implement appropriate security measures, including access control, data encryption, and vulnerability scanning, before deploying any components to a production environment.
 
 ## Persistent Resource Billing
-You are billed for the entire duration that a persistent resource is in a running state, regardless of whether there is a training job or a pipeline running on the persistent resource. For more details, please refer to the [documentation](https://cloud.google.com/vertex-ai/docs/training/persistent-resource-overview).
+You are billed for the entire duration that a persistent resource is in a running state, regardless of whether there is a training job or a pipeline running on the persistent resource. For more details, please refer to the [documentation](https://cloud.google.com/vertex-ai/docs/training/persistent-resource-overview). In order to delete the persistent resource, please follow the steps described on the following [link](https://cloud.google.com/vertex-ai/docs/training/persistent-resource-delete).
 
 ## Authors
 * Harkanwal Bedi (hsbedi@google.com)
