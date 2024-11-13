@@ -89,6 +89,8 @@ cp sample-terraform.tfvars terraform.tfvars
 nano terraform.tfvars # Update 'project_id' with your Google Cloud Project ID
 ```
 
+- **Customize Worker Pool Specs (Optional):** The specifications of the persistent resource worker pools provisioned can be modified by changing the [worker_pools_specs.yaml](terraform/terraform-modules/persistent_resource/worker_pools_specs.yaml) file *before* running `terraform apply`.
+
 4. **Initialize and Deploy:**
 - Initialize Terraform:
 
