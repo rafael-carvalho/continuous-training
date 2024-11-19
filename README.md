@@ -44,7 +44,7 @@ The Vertex AI pipeline orchestrates the end-to-end lifecycle of a machine learni
 5. **Conditional Deployment:** Deploys the model to a Vertex AI Endpoint only if the evaluation metrics meet specified thresholds.
 6. **Infrastructure Validation:** Verifies that the newly deployed model is actively serving predictions.
 
-The pipeline uses pre-built components and importer components to streamline the flow of artifacts between stages, accelerating the development and deployment cycle. This pipeline execution will leverage **persistent resources** *(allowlist required)* in order to speed up the pipeline. The following diagram visualizes the pipeline stages:
+The pipeline uses pre-built components and importer components to streamline the flow of artifacts between stages, accelerating the development and deployment cycle. This pipeline execution will leverage **persistent resources** in order to speed up the pipeline. The following diagram visualizes the pipeline stages:
 
 <img src="assets/pipeline.png" width="75%" />
 
