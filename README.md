@@ -147,7 +147,6 @@ This demo is intended for illustrative purposes and has the following known limi
 * **Colab Networking:** The demo uses a VPC network, subnet, and Cloud NAT to provide internet access to Colab Enterprise. Adapt this configuration if your network setup differs or requires custom settings. 
 * **Persisent Resource Management:** If the persistent resource is manually deleted from the project, it won't automatically be created by terraform.
 * **Region Support:** The demo has been tested primarily in the `us-central1` region. While other regions may work, compatibility is not guaranteed. If using a different region, be prepared for potential adjustments.
-* **Allowlist required:** At the time of writing *(November, 2024)*, the usage of persistent resources for pipeline executions are in private preview, i.e., you will need to get your project allowlisted via [this form](https://docs.google.com/forms/d/16nJthW7UHL7GTCvNT0_bM3VYcZBNOfdbXg92wQlA278/viewform) in order to use this feature.
 * **Error Handling:** The demo provides basic error handling. Enhance error handling and logging for more robust operation in a production environment. Consider incorporating mechanisms for alerting and automated recovery.
 * **Security Considerations:** This demo is not designed for production security requirements. Review and implement appropriate security measures, including access control, data encryption, and vulnerability scanning, before deploying any components to a production environment.
 
